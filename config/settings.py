@@ -1,96 +1,43 @@
-"""
-إعدادات البوت - عدّل هذا الملف بمعلوماتك
-"""
-
-# ===== إعدادات البوت =====
 import os
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")          # من @BotFather
-BOT_USERNAME = "@AlseifBot"
 
-# ===== معلومات المالك =====
-OWNER_ID = int(os.getenv("OWNER_ID", "0"))                        # ID التيليغرام الخاص فيك
-OWNER_USERNAME = "BOT_USERNAME"
+# ===== البوت =====
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+BOT_USERNAME = os.getenv("BOT_USERNAME", "")
+OWNER_ID = int(os.getenv("OWNER_ID", "0"))
 
-# ===== أسماء القنوات (عدّل بعد إنشائها) =====
+# ===== القنوات =====
 CHANNELS = {
     "forex": {
         "name": "ALSEIF FOREX 📈",
-        "link": "https://t.me/+XXXXXXXXXXXXXXXX",   # رابط الدعوة الخاص
-        "chat_id": -1001234567890,                   # ID القناة
-        "description": "صفقات فوركس يومية + تحليل فني احترافي"
+        "link": os.getenv("FOREX_INVITE", ""),
+        "chat_id": int(os.getenv("FOREX_CHAT_ID", "0")),
+        "description": "صفقات فوركس يومية"
     },
     "crypto": {
         "name": "ALSEIF CRYPTO 🪙",
-        "link": "https://t.me/+YYYYYYYYYYYYYYYY",
-        "chat_id": -1001234567891,
-        "description": "صفقات كريبتو + تحليل العملات الرقمية"
+        "link": os.getenv("CRYPTO_INVITE", ""),
+        "chat_id": int(os.getenv("CRYPTO_CHAT_ID", "0")),
+        "description": "صفقات كريبتو"
     },
     "analysis": {
         "name": "ALSEIF ANALYSIS 📊",
-        "link": "https://t.me/+ZZZZZZZZZZZZZZZZ",
-        "chat_id": -1001234567892,
-        "description": "تعليم التحليل الفني من الصفر حتى الاحتراف"
+        "link": os.getenv("ANALYSIS_INVITE", ""),
+        "chat_id": int(os.getenv("ANALYSIS_CHAT_ID", "0")),
+        "description": "تحليل فني من الصفر"
     },
     "free": {
-        "name": "ALSEIF CHART - قناة مجانية",
-        "link": "https://t.me/alseif_chart_free",
-        "chat_id": -1001234567893,
-        "description": "إشارات مجانية وأخبار السوق"
+        "name": "ALSEIF CHART - مجاني",
+        "link": os.getenv("FREE_INVITE", ""),
+        "chat_id": int(os.getenv("FREE_CHAT_ID", "0")),
+        "description": "قناة مجانية"
     }
 }
 
-# ===== الباقات والأسعار =====
+# ===== الباقات =====
 PLANS = {
     "basic": {
         "name": "🥈 الباقة الأساسية",
         "price_usd": 40,
         "duration_days": 30,
         "channels": ["forex"],
-        "description": "قناة فوركس VIP فقط"
-    },
-    "pro": {
-        "name": "🥇 الباقة الاحترافية",
-        "price_usd": 60,
-        "duration_days": 30,
-        "channels": ["forex", "crypto"],
-        "description": "فوركس + كريبتو VIP"
-    },
-    "vip": {
-        "name": "💎 باقة VIP الكاملة",
-        "price_usd": 80,
-        "duration_days": 30,
-        "channels": ["forex", "crypto", "analysis"],
-        "description": "جميع القنوات + التحليل من الصفر"
-    },
-    "broker_free": {
-        "name": "🎁 مجاني عبر الوكالة",
-        "price_usd": 0,
-        "duration_days": 30,
-        "channels": ["forex", "crypto", "analysis"],
-        "description": "مجاني عند التسجيل عبر رابط الوكالة"
-    }
-}
-
-# ===== إعدادات الدفع =====
-# Stripe
-STRIPE_SECRET_KEY = "sk_live_XXXXXXXXXXXXXXXXXXXXXXXX"
-STRIPE_WEBHOOK_SECRET = "whsec_XXXXXXXXXXXXXXXXXXXXXXXX"
-STRIPE_PUBLIC_KEY = "pk_live_XXXXXXXXXXXXXXXXXXXXXXXX"
-
-# NOWPayments (كريبتو)
-NOWPAYMENTS_API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXX"
-NOWPAYMENTS_IPN_SECRET = "XXXXXXXXXXXXXXXXXXXXXXXX"
-
-# ===== رابط الوكالة (Broker Referral) =====
-BROKER_REFERRAL_LINK = "https://your-broker-link.com/?ref=alseif"
-BROKER_NAME = "XM / IC Markets"
-
-# ===== إعدادات الموقع =====
-WEBSITE_URL = "https://alseif-chart.com"
-PAYMENT_SUCCESS_URL = f"{WEBSITE_URL}/success"
-PAYMENT_CANCEL_URL = f"{WEBSITE_URL}/cancel"
-WEBHOOK_URL = f"{WEBSITE_URL}/webhook/stripe"
-
-# ===== إعدادات التذكيرات =====
-REMINDER_DAYS_BEFORE = 3    # تذكير قبل كم يوم من الانتهاء
-GRACE_PERIOD_HOURS = 24     # ساعات السماح بعد الانتهاء قبل الإزالة
+        "description"
