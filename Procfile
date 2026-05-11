@@ -1,1 +1,2 @@
-web: python main.py
+web: gunicorn utils.webhook_server:app --bind 0.0.0.0:$PORT
+worker: python main.py
