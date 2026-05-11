@@ -3,12 +3,13 @@
 """
 
 # ===== إعدادات البوت =====
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"          # من @BotFather
-BOT_USERNAME = "@AlseifChartBot"
+import os
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")          # من @BotFather
+BOT_USERNAME = "@AlseifBot"
 
 # ===== معلومات المالك =====
-OWNER_ID = 123456789                        # ID التيليغرام الخاص فيك
-OWNER_USERNAME = "@alseif_chart"
+OWNER_ID = OWNER_ID                        # ID التيليغرام الخاص فيك
+OWNER_USERNAME = "BOT_USERNAME"
 
 # ===== أسماء القنوات (عدّل بعد إنشائها) =====
 CHANNELS = {
